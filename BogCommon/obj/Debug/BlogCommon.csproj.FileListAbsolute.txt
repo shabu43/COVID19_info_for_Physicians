@@ -1,0 +1,12 @@
+C:\Users\Asus\source\repos\ASPdotNET_CRUD\BogCommon\bin\Debug\BogCommon.dll
+C:\Users\Asus\source\repos\ASPdotNET_CRUD\BogCommon\bin\Debug\BogCommon.pdb
+C:\Users\Asus\source\repos\ASPdotNET_CRUD\BogCommon\obj\Debug\BlogCommon.csprojAssemblyReference.cache
+C:\Users\Asus\source\repos\ASPdotNET_CRUD\BogCommon\obj\Debug\BlogCommon.csproj.CoreCompileInputs.cache
+C:\Users\Asus\source\repos\ASPdotNET_CRUD\BogCommon\obj\Debug\BogCommon.dll
+C:\Users\Asus\source\repos\ASPdotNET_CRUD\BogCommon\obj\Debug\BogCommon.pdb
+D:\frankfurt Uni\SCS\example projct from ayon\ASPdotNET_BLOG-master\BogCommon\bin\Debug\BogCommon.dll
+D:\frankfurt Uni\SCS\example projct from ayon\ASPdotNET_BLOG-master\BogCommon\bin\Debug\BogCommon.pdb
+D:\frankfurt Uni\SCS\example projct from ayon\ASPdotNET_BLOG-master\BogCommon\obj\Debug\BlogCommon.csprojAssemblyReference.cache
+D:\frankfurt Uni\SCS\example projct from ayon\ASPdotNET_BLOG-master\BogCommon\obj\Debug\BlogCommon.csproj.CoreCompileInputs.cache
+D:\frankfurt Uni\SCS\example projct from ayon\ASPdotNET_BLOG-master\BogCommon\obj\Debug\BogCommon.dll
+D:\frankfurt Uni\SCS\example projct from ayon\ASPdotNET_BLOG-master\BogCommon\obj\Debug\BogCommon.pdb

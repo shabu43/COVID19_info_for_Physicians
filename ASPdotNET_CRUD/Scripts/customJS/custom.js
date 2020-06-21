@@ -149,36 +149,26 @@
     }
     function tableAppend(data) {
         $("#tblBlog2").empty();
-        var txt = '<table class="table table-bordered table-striped ">' +
-            '<thead>' +
-            '<tr>' +
-            '<th>Id</th>' +
-            '<th>Title</th>' +
-            '<th>Details</th>' +
-            '<th>Author</th>' +
-            '<th>Date</th>' +
-            '<th>Action</th>' +
-            '</tr>' +
-            '</thead>' +
-            '<tbody>';
+        $("#corona-data").empty();
+
+
+        var txt2 = '<br>';
         $.each(data, function (i, item) {
-            txt += '<tr>';
-            //$.each(item, function (i, item) {
-            //    txt += '<td>' + item + '</td>';
-            //});
-            txt += '<td>' + item.id + '</td>';
-            txt += '<td><a href="/Blog/Detail?BlogId=' + item.id +'">' + item.title + '</a></td>';
-            txt += '<td>' + item.description + '</td>';
-            txt += '<td>' + item.AddedBy + '</td>';
-            txt += '<td>' + item.DateAdded + '</td>';
-            txt += '<td><button value="' + item.id + '" type="button" id="btnEdit" class="btn btn-sm btn-info" data-toggle="modal" data-target="#editModal">Edit</button>';
-            txt += '<button value="' + item.id + '" type= "button" id="btnDelete" class="btn btn-sm btn-danger">Delete</button ></td >';
-            //txt += '<td><button onclick=LoadEditData(' + item.AdminID + ') type="button" id="btnEdit" class="btn btn-info">Edit</button> <button onclick=DeleteData(' + item.AdminID + ')  type="button" id="btnDelete" class="btn btn-danger">Delete</button></td>';
-            txt += '</tr>';
+
+            txt2 += '<div class="media border p-3">' +
+                '<div class="media-body">' +
+                '<h3 class="text-primary">' + item.title + '</h3>' +
+                '<h5><small><i>Updated on ' + item.DateAdded + '</i></small></h5>' +
+                '<p>' + item.description + '</p>' +
+                '</div>' +
+                '</div>' +
+                '<br>';
+
+
         });
-        txt += '</tbody></table>';
+
         //alert(txt);
-        $("#tblBlog2").append(txt);
+        $("#corona-data").append(txt2);
     }
 
     function BindGridData(data) {
@@ -200,7 +190,7 @@
                 {
                     field: "id",
                     template: '<a role="button" class="k-button k-button-icontext k-grid-edit" href="javascript:void(0)" onclick=LoadEditData(#=id#)><span class="k-icon k-i-edit"></span>Edit</a>' +
-                            '<a role="button" class="k-button k-button-icontext k-grid-delete" " href="javascript:void(0)" onclick=DeleteBlog(#=id#)><span class="k-icon k-i-close"></span>Delete</a>',
+                        '<a role="button" class="k-button k-button-icontext k-grid-delete" " href="javascript:void(0)" onclick=DeleteBlog(#=id#)><span class="k-icon k-i-close"></span>Delete</a>',
 
                     title: "Action",
                     width: 170,
@@ -226,31 +216,31 @@
             scrollable: true
         });
     }
-   
-//ready function
+
+    //ready function
 });
 function DeleteBlog(id) {
-        var ans = confirm("Are you sure to delete a record");
-        if (ans == true) {
-            var _dbModel = { 'id': id };
-            console.log(_dbModel);
-            $.ajax({
-                type: "POST",
-                url: "/Blog/DeleteBlog",
-                data: JSON.stringify(_dbModel),
-                contentType: "application/json",
-                datatype: "json",
-                success: function (data) {
-                    if (data.success == true) {
-                        LoadGridData();
-                        $.notify("Data Deleted Successfully..", "success");
-                    }
-                    else {
-                        $.notify("Data Deleted Failed..!", "error");
-                    }
+    var ans = confirm("Are you sure to delete a record");
+    if (ans == true) {
+        var _dbModel = { 'id': id };
+        console.log(_dbModel);
+        $.ajax({
+            type: "POST",
+            url: "/Blog/DeleteBlog",
+            data: JSON.stringify(_dbModel),
+            contentType: "application/json",
+            datatype: "json",
+            success: function (data) {
+                if (data.success == true) {
+                    LoadGridData();
+                    $.notify("Data Deleted Successfully..", "success");
                 }
-            });
-        }
+                else {
+                    $.notify("Data Deleted Failed..!", "error");
+                }
+            }
+        });
+    }
 }
 
 function LoadEditData(id) {

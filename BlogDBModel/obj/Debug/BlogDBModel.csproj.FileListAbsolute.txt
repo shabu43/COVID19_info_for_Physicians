@@ -9,3 +9,9 @@ D:\frankfurt Uni\SCS\example projct from ayon\ASPdotNET_BLOG-master\BlogDBModel\
 D:\frankfurt Uni\SCS\example projct from ayon\ASPdotNET_BLOG-master\BlogDBModel\obj\Debug\BlogDBModel.csproj.CoreCompileInputs.cache
 D:\frankfurt Uni\SCS\example projct from ayon\ASPdotNET_BLOG-master\BlogDBModel\obj\Debug\BlogDBModel.dll
 D:\frankfurt Uni\SCS\example projct from ayon\ASPdotNET_BLOG-master\BlogDBModel\obj\Debug\BlogDBModel.pdb
+D:\frankfurt Uni\SCS\lab prjct\COVID19_info_for_Physicians\BlogDBModel\bin\Debug\BlogDBModel.dll
+D:\frankfurt Uni\SCS\lab prjct\COVID19_info_for_Physicians\BlogDBModel\bin\Debug\BlogDBModel.pdb
+D:\frankfurt Uni\SCS\lab prjct\COVID19_info_for_Physicians\BlogDBModel\obj\Debug\BlogDBModel.csprojAssemblyReference.cache
+D:\frankfurt Uni\SCS\lab prjct\COVID19_info_for_Physicians\BlogDBModel\obj\Debug\BlogDBModel.csproj.CoreCompileInputs.cache
+D:\frankfurt Uni\SCS\lab prjct\COVID19_info_for_Physicians\BlogDBModel\obj\Debug\BlogDBModel.dll
+D:\frankfurt Uni\SCS\lab prjct\COVID19_info_for_Physicians\BlogDBModel\obj\Debug\BlogDBModel.pdb

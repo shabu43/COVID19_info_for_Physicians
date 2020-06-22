@@ -8,20 +8,20 @@ using System.Web.Mvc;
 
 namespace COVID19_info_for_Physicians.Controllers
 {
-    public class BlogController : Controller
+    public class InstructionsController : Controller
     {
         // GET: Blog
-        public ActionResult Symptoms()
+        public ActionResult Instructions_to_provide()
         {
             return View();
         }
 
-        BlogList objList;
+        InstructionList objList;
         [HttpPost]
-        public JsonResult Add(BlogsDBModel _dbModel)
+        public JsonResult Add(InstructionDBModel _dbModel)
         {
             int _result = 0;
-            objList = new BlogList();
+            objList = new InstructionList();
             _result = objList.Add(_dbModel);
             if (_result > 0)
                 return Json(new { success = true });
@@ -31,8 +31,8 @@ namespace COVID19_info_for_Physicians.Controllers
         [HttpGet]
         public JsonResult GetAll()
         {
-            objList = new BlogList();
-            List<BlogsDBModel> _dbModelList = new List<BlogsDBModel>();
+            objList = new InstructionList();
+            List<InstructionDBModel> _dbModelList = new List<InstructionDBModel>();
 
             _dbModelList = objList.GetAllBlogs();
             return this.Json(_dbModelList, JsonRequestBehavior.AllowGet);
@@ -40,19 +40,19 @@ namespace COVID19_info_for_Physicians.Controllers
 
         }
         [HttpPost]
-        public JsonResult LoadSelectedBlog(BlogsDBModel _dbModel)
+        public JsonResult LoadSelectedBlog(InstructionDBModel _dbModel)
         {
-            objList = new BlogList();
-            List<BlogsDBModel> _dbModelList = new List<BlogsDBModel>();
+            objList = new InstructionList();
+            List<InstructionDBModel> _dbModelList = new List<InstructionDBModel>();
             _dbModelList = objList.LoadSelectedBlog(_dbModel);
             return this.Json(_dbModelList, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
-        public JsonResult DeleteBlog(BlogsDBModel _dbModel)
+        public JsonResult DeleteBlog(InstructionDBModel _dbModel)
         {
             int _result = 0;
-            objList = new BlogList();
+            objList = new InstructionList();
             _result = objList.DeleteBlog(_dbModel);
             if (_result > 0)
                 return Json(new { success = true });
@@ -61,10 +61,10 @@ namespace COVID19_info_for_Physicians.Controllers
         }
 
         [HttpPost]
-        public JsonResult Update(BlogsDBModel _dbModel)
+        public JsonResult Update(InstructionDBModel _dbModel)
         {
             int _result = 0;
-            objList = new BlogList();
+            objList = new InstructionList();
             _result = objList.Update(_dbModel);
             if (_result > 0)
                 return Json(new { success = true });

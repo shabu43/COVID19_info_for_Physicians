@@ -31,3 +31,14 @@ D:\frankfurt Uni\SCS\lab prjct\ayonproj\ASPdotNET_BLOG-master\BlogsLibrary\obj\D
 D:\frankfurt Uni\SCS\lab prjct\ayonproj\ASPdotNET_BLOG-master\BlogsLibrary\obj\Debug\BlogsLibrary.csproj.CopyComplete
 D:\frankfurt Uni\SCS\lab prjct\ayonproj\ASPdotNET_BLOG-master\BlogsLibrary\obj\Debug\BlogsLibrary.dll
 D:\frankfurt Uni\SCS\lab prjct\ayonproj\ASPdotNET_BLOG-master\BlogsLibrary\obj\Debug\BlogsLibrary.pdb
+D:\frankfurt Uni\SCS\lab prjct\COVID19_info_for_Physicians\BlogsLibrary\bin\Debug\BlogsLibrary.dll
+D:\frankfurt Uni\SCS\lab prjct\COVID19_info_for_Physicians\BlogsLibrary\bin\Debug\BlogsLibrary.pdb
+D:\frankfurt Uni\SCS\lab prjct\COVID19_info_for_Physicians\BlogsLibrary\bin\Debug\BlogDBModel.dll
+D:\frankfurt Uni\SCS\lab prjct\COVID19_info_for_Physicians\BlogsLibrary\bin\Debug\BogCommon.dll
+D:\frankfurt Uni\SCS\lab prjct\COVID19_info_for_Physicians\BlogsLibrary\bin\Debug\BlogDBModel.pdb
+D:\frankfurt Uni\SCS\lab prjct\COVID19_info_for_Physicians\BlogsLibrary\bin\Debug\BogCommon.pdb
+D:\frankfurt Uni\SCS\lab prjct\COVID19_info_for_Physicians\BlogsLibrary\obj\Debug\BlogsLibrary.csprojAssemblyReference.cache
+D:\frankfurt Uni\SCS\lab prjct\COVID19_info_for_Physicians\BlogsLibrary\obj\Debug\BlogsLibrary.csproj.CoreCompileInputs.cache
+D:\frankfurt Uni\SCS\lab prjct\COVID19_info_for_Physicians\BlogsLibrary\obj\Debug\BlogsLibrary.csproj.CopyComplete
+D:\frankfurt Uni\SCS\lab prjct\COVID19_info_for_Physicians\BlogsLibrary\obj\Debug\BlogsLibrary.dll
+D:\frankfurt Uni\SCS\lab prjct\COVID19_info_for_Physicians\BlogsLibrary\obj\Debug\BlogsLibrary.pdb

@@ -19,6 +19,7 @@ namespace COVID19_info_for_Physicians.Controllers
         {
             return View();
         }
+       
 
     }
 }

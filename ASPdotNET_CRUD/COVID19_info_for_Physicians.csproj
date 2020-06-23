@@ -268,6 +268,7 @@
     <Content Include="Content\kendo\2014.1.318\images\kendoui.ttf" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\customJS\custom.js" />
+    <Content Include="Scripts\customJS\DealpatientJS.js" />
     <Content Include="Scripts\customJS\InstructionsJS.js" />
     <Content Include="Scripts\customJS\notifyJs\notify.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -704,6 +705,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BlogController.cs" />
+    <Compile Include="Controllers\DealpatientController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InstructionsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -796,10 +798,10 @@
     <Content Include="Views\Blog\Detail.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Instructions_to_provide.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Blog\Symptoms.cshtml" />
     <Content Include="Views\Instructions\Instructions_to_provide.cshtml" />
+    <Content Include="Views\Dealpatient\Deal_patients.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

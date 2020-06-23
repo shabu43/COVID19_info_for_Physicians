@@ -155,14 +155,15 @@
         var txt2 = '<br>';
         $.each(data, function (i, item) {
 
-            txt2 += '<div class="media border p-3">' +
+            txt2 += '<div class="jumbotron">' +
+                '<div class="media border p-3">' +
                 '<div class="media-body">' +
                 '<h3 class="text-primary">' + item.title + '</h3>' +
                 '<h5><small><i>Updated on ' + item.DateAdded + '</i></small></h5>' +
                 '<p>' + item.description + '</p>' +
                 '</div>' +
                 '</div>' +
-                '<br>';
+                '</div>';
 
 
         });

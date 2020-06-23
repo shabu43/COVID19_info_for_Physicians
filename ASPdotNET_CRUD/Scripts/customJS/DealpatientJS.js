@@ -17,7 +17,7 @@
         };
         $.ajax({
             type: "POST",
-            url: "/Blog/LoadSelectedBlog",
+            url: "/Dealpatient/LoadSelectedBlog",
             data: JSON.stringify(_dbModel),
             contentType: "application/json",
             datatype: "json",
@@ -48,7 +48,7 @@
         //console.log(_dbModel);
         $.ajax({
             type: "POST",
-            url: "/Blog/Update",
+            url: "/Dealpatient/Update",
             data: JSON.stringify(_dbModel),
             contentType: "application/json",
             datatype: "json",
@@ -82,7 +82,7 @@
             };
             $.ajax({
                 type: "POST",
-                url: "/Blog/DeleteBlog",
+                url: "/Dealpatient/DeleteBlog",
                 data: JSON.stringify(_dbModel),
                 contentType: "application/json",
                 datatype: "json",
@@ -110,7 +110,7 @@
 
         $.ajax({
             type: "POST",
-            url: "/Blog/Add",
+            url: "/Dealpatient/Add",
             data: JSON.stringify(_dbModel),
             contentType: "application/json",
             datatype: "json",
@@ -132,7 +132,7 @@
     function LoadGridData() {
         $.ajax({
             type: "GET",
-            url: "/Blog/GetAll",
+            url: "/Dealpatient/GetAll",
             //data: JSON.stringify(_dbModel),
             contentType: "application/json",
             datatype: "json",
@@ -155,7 +155,7 @@
         var txt2 = '<br>';
         $.each(data, function (i, item) {
 
-            txt2 += '<div class="jumbotron">'+
+            txt2 += '<div class="jumbotron">' +
                 '<div class="media border p-3">' +
                 '<div class="media-body">' +
                 '<h3 class="text-primary">' + item.title + '</h3>' +
@@ -227,7 +227,7 @@ function DeleteBlog(id) {
         console.log(_dbModel);
         $.ajax({
             type: "POST",
-            url: "/Blog/DeleteBlog",
+            url: "/Dealpatient/DeleteBlog",
             data: JSON.stringify(_dbModel),
             contentType: "application/json",
             datatype: "json",
@@ -253,7 +253,7 @@ function LoadEditData(id) {
     //console.log(_dbModel);
     $.ajax({
         type: "POST",
-        url: "/Blog/LoadSelectedBlog",
+        url: "/Dealpatient/LoadSelectedBlog",
         data: JSON.stringify(_dbModel),
         contentType: "application/json",
         datatype: "json",

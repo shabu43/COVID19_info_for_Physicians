@@ -1,7 +1,46 @@
-﻿@{
-    ViewBag.Title = "About";
-}
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+﻿@{ ViewBag.Title = "Index"; }
 
-<p>Use this area to provide additional information.</p>
+    <html>
+    <head>
+        <style>
+            #example1 {
+                border: 2px solid black;
+                padding: 25px;
+                background: url(images/Coronavirus-Covid19.jpg);
+                background-repeat: no-repeat;
+                background-size: auto;
+                opacity: 0.8;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="grid">
+            <div id="example1">
+                <h1 style="color:white">
+                    Coronavirus Disease 2019 (COVID-19):<br>
+                    <span class="text--kilo" style="font-weight: 600;">Information for Internists</span>
+                </h1>
+            </div>
+
+        </div>
+        <div>
+            <h1 style="color:darkgray">
+                Clinical Information:<br>
+            </h1>
+            <p style="color:darkseagreen">Recommendation guidelines, medical publications, and other tools<br> to help clinicians stay up to date and treat their patients effectively.</p>
+
+        </div>
+        <div class="grid">
+
+            <h2 style="color:darkred">
+                Treating a patient? Researching a topic? Get answers now.<br>
+            </h2>
+            <div class="input-group-search">
+                <input class="form-control" name="term" placeholder="Search a condition or term" type="text">
+                <div class="input-group-btn"><button class="btn btn-primary-darker clinical-search-switch" type="submit"><span>Search</span></button></div>
+            </div>
+
+        </div>
+    </body>
+    </html>

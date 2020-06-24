@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="BlogsDBModel.cs" />
     <Compile Include="DealpatientDBModel.cs" />
+    <Compile Include="FindingsDBModel.cs" />
     <Compile Include="InstructionDBModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="BlogList.cs" />
     <Compile Include="DealpatientList.cs" />
+    <Compile Include="FindingsList.cs" />
     <Compile Include="InstructionList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

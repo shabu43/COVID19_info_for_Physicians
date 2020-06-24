@@ -1,0 +1,102 @@
+﻿
+@{ ViewBag.Title = "Blogs"; }
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+@*<link href="~/Content/kendo/2014.1.318/kendo.common.min.css" rel="stylesheet" />
+    <link href="~/Content/kendo/2014.1.318/kendo.blueopal.min.css" rel="stylesheet" />
+    <link href="~/Content/kendo/2014.1.318/kendo.blueopal.mobile.min.css" rel="stylesheet" />
+    <script src="~/Scripts/kendo/2014.1.318/kendo.web.min.js"></script>*@
+
+<h2>Scientific Findings</h2>
+<div class="container mt-3">
+    <div id="corona-data"></div>
+</div>
+@*<form>
+        <input type="text" id="title" class="form-control" />
+        <br />
+        <textarea id="description" class="form-control"></textarea>
+        <br />
+        <button type="submit" id="btnSubmit" class="btn btn-sm btn-info">Submit</button>
+    </form>*@
+<br />
+<div id="tblBlog2">
+
+</div>
+
+<!-- ADDModal -->
+<form>
+    <div class="modal fade" id="addBlogModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="text" class="form-control" id="title">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea id="description" class="form-control"></textarea>
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" id="btnSubmit" class="btn btn-sm btn-info">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<!--ADDModal-->
+<!-- EDITModal -->
+<form>
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel"><span id="EditAuthor"></span>'s Blog</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Posted On - <span id="EditDate" style="color:lightslategrey;"></span></p>
+                    <div class="form-group">
+                        <input type="hidden" id="EditId" value="" />
+                        <label for="EditTitle">Title</label>
+                        <input type="text" class="form-control" id="EditTitle">
+                    </div>
+                    <div class="form-group">
+                        <label for="EditDescription">Description</label>
+                        <textarea id="EditDescription" class="form-control"></textarea>
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" id="btnSave" class="btn btn-info">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<!--EDITModal-->
+<button class="btn btn-primary" id="kendoToggler">Kendo Table</button>
+<br />
+<br />
+@*Kendo Table*@
+<button class="btn btn-sm btn-success" id="addBlogBtn" data-toggle="modal" data-target="#addBlogModal">Add+</button>
+<div class="row toggleDiv" style="display:none;">
+    <div class="col-md-12 col-lg-12">
+        <div id="tblBlog">
+
+        </div>
+    </div>
+</div>
+@*Kendo Table*@
+<script src="~/Scripts/customJS/FindingsJS.js"></script>

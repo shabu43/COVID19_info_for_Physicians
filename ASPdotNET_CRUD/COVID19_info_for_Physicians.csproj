@@ -272,6 +272,7 @@
     <Content Include="Scripts\customJS\FindingsJS.js" />
     <Content Include="Scripts\customJS\InstructionsJS.js" />
     <Content Include="Scripts\customJS\notifyJs\notify.min.js" />
+    <Content Include="Scripts\customJS\SearchJS.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
@@ -710,6 +711,7 @@
     <Compile Include="Controllers\FindingsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InstructionsController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -805,6 +807,7 @@
     <Content Include="Views\Instructions\Instructions_to_provide.cshtml" />
     <Content Include="Views\Dealpatient\Deal_patients.cshtml" />
     <Content Include="Views\Findings\Scientific_Find.cshtml" />
+    <Content Include="Views\Search\Search.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

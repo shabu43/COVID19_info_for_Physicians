@@ -46,7 +46,8 @@
     <Compile Include="FindingsDBModel.cs" />
     <Compile Include="InstructionDBModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SearchDBModel.cs" />
+    <Compile Include="ReferenceDBModel.cs" />
+    <Compile Include="SearchDBModel .cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

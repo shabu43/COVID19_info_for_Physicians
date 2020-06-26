@@ -1,6 +1,19 @@
 ﻿$(document).ready(function () {
     console.log("System Started!");
 
+    var input = document.getElementById("inputstr");
+
+    // Execute a function when the user releases a key on the keyboard
+    input.addEventListener("keyup", function (event) {
+        // Number 13 is the "Enter" key on the keyboard
+        if (event.keyCode === 13) {
+            // Cancel the default action, if needed
+            event.preventDefault();
+            // Trigger the button element with a click
+            document.getElementById("searchbuttn").click();
+        }
+    });
+
     $(document).delegate('#searchbuttn', 'click', function (e) {
         //e.preventDefault();
         //console.log(this.value);
@@ -59,7 +72,7 @@
         });
 
         if (count == 0) {
-            txt2 ='<br><h4 style="color:red;">No Result!</h4>'
+            txt2 +='<br><h4 style="color:red;">No Result!</h4>'
         }
 
         //alert(txt);

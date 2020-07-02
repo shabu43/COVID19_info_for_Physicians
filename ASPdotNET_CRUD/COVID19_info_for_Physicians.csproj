@@ -270,7 +270,9 @@
     <Content Include="Scripts\customJS\custom.js" />
     <Content Include="Scripts\customJS\DealpatientJS.js" />
     <Content Include="Scripts\customJS\FindingsJS.js" />
+    <Content Include="Scripts\customJS\ForumJS.js" />
     <Content Include="Scripts\customJS\InstructionsJS.js" />
+    <Content Include="Scripts\customJS\LoginJS.js" />
     <Content Include="Scripts\customJS\notifyJs\notify.min.js" />
     <Content Include="Scripts\customJS\Reference.js" />
     <Content Include="Scripts\customJS\SearchJS.js" />
@@ -710,8 +712,10 @@
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\DealpatientController.cs" />
     <Compile Include="Controllers\FindingsController.cs" />
+    <Compile Include="Controllers\ForumController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InstructionsController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ReferenceController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Global.asax.cs">
@@ -811,6 +815,8 @@
     <Content Include="Views\Findings\Scientific_Find.cshtml" />
     <Content Include="Views\Search\Search.cshtml" />
     <Content Include="Views\Reference\Reference.cshtml" />
+    <Content Include="Views\Forum\Forum.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

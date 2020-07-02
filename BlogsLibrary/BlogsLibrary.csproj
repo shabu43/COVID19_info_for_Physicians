@@ -44,7 +44,9 @@
     <Compile Include="BlogList.cs" />
     <Compile Include="DealpatientList.cs" />
     <Compile Include="FindingsList.cs" />
+    <Compile Include="ForumList.cs" />
     <Compile Include="InstructionList.cs" />
+    <Compile Include="LoginList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReferenceList.cs" />
     <Compile Include="SearchList.cs" />

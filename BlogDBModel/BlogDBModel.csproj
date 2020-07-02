@@ -44,7 +44,9 @@
     <Compile Include="BlogsDBModel.cs" />
     <Compile Include="DealpatientDBModel.cs" />
     <Compile Include="FindingsDBModel.cs" />
+    <Compile Include="ForumDBModel.cs" />
     <Compile Include="InstructionDBModel.cs" />
+    <Compile Include="LoginDBModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReferenceDBModel.cs" />
     <Compile Include="SearchDBModel .cs" />

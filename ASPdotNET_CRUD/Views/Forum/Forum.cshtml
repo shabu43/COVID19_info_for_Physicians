@@ -1,0 +1,33 @@
+﻿
+@{ ViewBag.Title = "Search"; }
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+@*<link href="~/Content/kendo/2014.1.318/kendo.common.min.css" rel="stylesheet" />
+    <link href="~/Content/kendo/2014.1.318/kendo.blueopal.min.css" rel="stylesheet" />
+    <link href="~/Content/kendo/2014.1.318/kendo.blueopal.mobile.min.css" rel="stylesheet" />
+    <script src="~/Scripts/kendo/2014.1.318/kendo.web.min.js"></script>*@
+
+<h2>Instructions to provide to patients</h2>
+
+<div class="grid">
+
+    <h2 style="color:darkred">
+        Treating a patient? Researching a topic? Get answers now.<br>
+    </h2>
+    <div class="input-group-search">
+        <input id="inputstr" class="form-control" name="term" placeholder="Search a condition or term" type="text">
+        <div class="input-group-btn"><button id="searchbuttn" class="btn btn-primary-darker clinical-search-switch" type="submit"><span>Search</span></button></div>
+    </div>
+
+</div>
+
+<div id="tblBlog2">
+
+</div>
+<div class="container mt-3">
+    <div id="corona-data"></div>
+</div>
+<!-- ADDModal -->
+
+@*Kendo Table*@
+<script src="~/Scripts/customJS/ForumJS.js"></script>

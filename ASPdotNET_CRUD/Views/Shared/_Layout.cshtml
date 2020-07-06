@@ -37,7 +37,14 @@
                     <li>@Html.ActionLink("Queries", "Forum", "Forum")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Reference List", "Reference", "Reference")</li>
-                    <li>@Html.ActionLink("Login", "Login", "Login")</li>
+                    @if (Session["password"] == null)
+                    {
+                         <li>@Html.ActionLink("Login", "Login", "Login")</li>
+                    }
+                    @if (Session["password"] != null)
+                    {
+                         <li>@Html.ActionLink("Logout", "Logout", "Login")</li>
+                    }
 
                 </ul>
 

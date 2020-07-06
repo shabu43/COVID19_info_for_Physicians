@@ -1,5 +1,6 @@
 ﻿$(document).ready(function () {
     console.log("System Started!");
+    
     LoadGridData();
     $(document).delegate('#kendoToggler', 'click', function (e) {
         $('.toggleDiv').toggle();
@@ -37,6 +38,7 @@
             }
         });
     });
+    
     $(document).delegate('#btnSave', 'click', function (e) {
         e.preventDefault();
         var ID = $('#EditId').val();
@@ -130,6 +132,7 @@
     });
 
     function LoadGridData() {
+     
         $.ajax({
             type: "GET",
             url: "/Blog/GetAll",
@@ -139,7 +142,7 @@
             async: false,
             success: function (data) {
                 //console.log(data);
-                BindGridData(data);
+                    BindGridData(data);   
                 tableAppend(data);
             },
             error: function () {
@@ -189,6 +192,8 @@
                 { field: "DateAdded", title: "Date", filterable: true },
 
                 {
+                    
+                   
                     field: "id",
                     template: '<a role="button" class="k-button k-button-icontext k-grid-edit" href="javascript:void(0)" onclick=LoadEditData(#=id#)><span class="k-icon k-i-edit"></span>Edit</a>' +
                         '<a role="button" class="k-button k-button-icontext k-grid-delete" " href="javascript:void(0)" onclick=DeleteBlog(#=id#)><span class="k-icon k-i-close"></span>Delete</a>',

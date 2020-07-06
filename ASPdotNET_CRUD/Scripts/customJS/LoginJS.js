@@ -99,18 +99,19 @@
         }
     });
 
-    $("#btnSubmit").click(function (e) {
+    $("#signupbtn").click(function (e) {
         // e.preventDefault();
-        var ttl = $("#title").val();
-        var desc = $("#description").val();
+        var name = $("#name").val();
+        var email = $("#email").val();
+        var password = $("#password").val();
 
         var _dbModel = {
-            'title': ttl, 'description': desc,
+            'name': name, 'email': email, 'password': password,
         };
 
         $.ajax({
             type: "POST",
-            url: "/Instructions/Add",
+            url: "/Login/Add",
             data: JSON.stringify(_dbModel),
             contentType: "application/json",
             datatype: "json",
@@ -118,9 +119,11 @@
             success: function (data) {
                 //alert("!");
                 $('#addBlogModal').modal('toggle');
-                $('#title').val("");
-                $('#description').val("");
+                $('#name').val("");
+                $('#email').val("");
+                $('#password').val("");
                 LoadGridData();
+                document.getElementsByClassName("cancelbtn")[0].click();
                 $.notify(" Data Added Successfully.. ", "success");
             },
             error: function () {
@@ -128,6 +131,61 @@
             }
         });
     });
+    $(document).delegate('#loginbtn', 'click', function (e) {
+        e.preventDefault();
+        var email = $("#email").val();
+        var password = $("#password").val();
+
+        var _dbModel = {
+            'email': email, 'password': password,
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "/Login/GetAll",
+            data: JSON.stringify(_dbModel),
+            contentType: "application/json",
+            datatype: "json",
+            async: false,
+            success: function (data) {
+                history.back();
+
+
+            },
+            error: function () {
+                $.notify(" Data Addition Failed..! ", "error");
+            }
+        });
+    });
+    //$("#loginbtn").click(function (e) {
+    //    // e.preventDefault();
+        
+
+    //    var email = $("#email").val();
+    //    var password = $("#password").val();
+
+    //    var _dbModel = {
+    //        'email': email, 'password': password,
+    //    };
+
+    //    $.ajax({
+    //        type: "POST",
+    //        url: "/Login/GetAll",
+    //        data: JSON.stringify(_dbModel),
+    //        contentType: "application/json",
+    //        datatype: "json",
+    //        async: false,
+    //        success: function (data) {
+    //            alert(data);
+                
+    //           //// window.location.replace("http://localhost:52073/");
+                
+    //        },
+    //        error: function () {
+    //            $.notify(" Data Addition Failed..! ", "error");
+    //        }
+    //    });
+    //});
 
     function LoadGridData() {
         $.ajax({

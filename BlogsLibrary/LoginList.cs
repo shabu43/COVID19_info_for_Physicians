@@ -13,18 +13,18 @@ namespace BlogsLibrary
     public class LoginList
     {
 
-        public int Add(InstructionDBModel _dbModel)
+        public int Add(LoginDBModel _dbModel)
         {
             SqlConnection conn = new SqlConnection(DBConnection.GetConnection());
             conn.Open();
-            SqlCommand dCmd = new SqlCommand("SP_SET_TBL_Instrcuctions", conn);
+            SqlCommand dCmd = new SqlCommand("SP_SET_TBL_user", conn);
             dCmd.CommandType = CommandType.StoredProcedure;
             try
             {
                 //dCmd.Parameters.AddWithValue("@id", _dbModel.id);
-                dCmd.Parameters.AddWithValue("@title", _dbModel.title);
-                dCmd.Parameters.AddWithValue("@description", _dbModel.description);
-                dCmd.Parameters.AddWithValue("@AddedBy", "Admin");
+                dCmd.Parameters.AddWithValue("@name", _dbModel.name);
+                dCmd.Parameters.AddWithValue("@email", _dbModel.email);
+                dCmd.Parameters.AddWithValue("@password", _dbModel.password);
                 //dCmd.Parameters.AddWithValue("@DateAdded", _dbModel.DateAdded);
                 //dCmd.Parameters.AddWithValue("@UpdatedBy", _dbModel.Country);
                 //dCmd.Parameters.AddWithValue("@DateUpdated", _dbModel.City);
@@ -49,15 +49,17 @@ namespace BlogsLibrary
             }
         }
 
-        public List<InstructionDBModel> GetAllBlogs()
+        public List<LoginDBModel> GetAllBlogs(LoginDBModel _dbModel)
         {
-            List<InstructionDBModel> _modelList = new List<InstructionDBModel>();
+            List<LoginDBModel> _modelList = new List<LoginDBModel>();
             SqlConnection conn = new SqlConnection(DBConnection.GetConnection());
             conn.Open();
-            SqlCommand dAd = new SqlCommand("SP_SET_TBL_Instrcuctions", conn);
+            SqlCommand dAd = new SqlCommand("SP_SET_TBL_user", conn);
             SqlDataAdapter sda = new SqlDataAdapter(dAd);
             dAd.CommandType = CommandType.StoredProcedure;
-            dAd.Parameters.AddWithValue("@QryOption", 3);
+            dAd.Parameters.AddWithValue("@email", _dbModel.email);
+            dAd.Parameters.AddWithValue("@password", _dbModel.password);
+            dAd.Parameters.AddWithValue("@QryOption", 2);
 
             DataTable dt = new DataTable();
             try
@@ -66,13 +68,12 @@ namespace BlogsLibrary
                 if (dt.Rows.Count > 0)
                 {
                     _modelList = (from DataRow row in dt.Rows
-                                  select new InstructionDBModel
+                                  select new LoginDBModel
                                   {
                                       id = Convert.ToInt32(row["id"].ToString()),
-                                      title = row["title"].ToString(),
-                                      description = row["description"].ToString(),
-                                      AddedBy = row["AddedBy"].ToString(),
-                                      DateAdded = row["DateAdded"].ToString(),
+                                      name = row["name"].ToString(),
+                                      email = row["email"].ToString(),
+                                      password = row["password"].ToString(),
 
                                   }).ToList();
                 }
@@ -91,97 +92,6 @@ namespace BlogsLibrary
                 conn.Dispose();
             }
         }
-        public int Update(InstructionDBModel _dbModel)
-        {
-            SqlConnection conn = new SqlConnection(DBConnection.GetConnection());
-            conn.Open();
-            SqlCommand dCmd = new SqlCommand("SP_SET_TBL_Instrcuctions", conn);
-            dCmd.CommandType = CommandType.StoredProcedure;
-            try
-            {
-                dCmd.Parameters.AddWithValue("@id", _dbModel.id);
-                dCmd.Parameters.AddWithValue("@title", _dbModel.title);
-                dCmd.Parameters.AddWithValue("@description", _dbModel.description);
-                
-                dCmd.Parameters.AddWithValue("@QryOption", 2);
-                return dCmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                //UtilityOptions.ErrorLog(ex.ToString(), MethodBase.GetCurrentMethod().Name);
-                throw ex;
-            }
-            finally
-            {
-                dCmd.Dispose();
-                conn.Close();
-                conn.Dispose();
-            }
-        }
-        public List<InstructionDBModel> LoadSelectedBlog(InstructionDBModel _dbModel)
-        {
-            List<InstructionDBModel> _modelList = new List<InstructionDBModel>();
-            SqlConnection conn = new SqlConnection(DBConnection.GetConnection());
-            conn.Open();
-            SqlCommand dAd = new SqlCommand("SP_SET_TBL_Instrcuctions", conn);
-            SqlDataAdapter sda = new SqlDataAdapter(dAd);
-            dAd.CommandType = CommandType.StoredProcedure;
-            dAd.Parameters.AddWithValue("id", _dbModel.id);
-            dAd.Parameters.AddWithValue("@QryOption", 4);
-            DataTable dt = new DataTable();
-            try
-            {
-                sda.Fill(dt);
-                if (dt.Rows.Count > 0)
-                {
-                    _modelList = (from DataRow row in dt.Rows
-                                  select new InstructionDBModel
-                                  {
-                                      id = Convert.ToInt32(row["id"].ToString()),
-                                      title = row["title"].ToString(),
-                                      description = row["description"].ToString(),
-                                      AddedBy = row["AddedBy"].ToString(),
-                                      DateAdded = row["DateAdded"].ToString(),
-                                  }).ToList();
-                }
-                return _modelList;
-            }
-            catch (Exception ex)
-            {
-                //UtilityOptions.ErrorLog(ex.ToString(), MethodBase.GetCurrentMethod().Name);
-                throw ex;
-            }
-            finally
-            {
-                dt.Dispose();
-                dAd.Dispose();
-                conn.Close();
-                conn.Dispose();
-            }
-        }
-        public int DeleteBlog(InstructionDBModel _dbModel)
-        {
-            SqlConnection conn = new SqlConnection(DBConnection.GetConnection());
-            conn.Open();
-            SqlCommand dCmd = new SqlCommand("SP_SET_TBL_Instrcuctions", conn);
-            dCmd.CommandType = CommandType.StoredProcedure;
-            try
-            {
-                dCmd.Parameters.AddWithValue("@id", _dbModel.id);
-                dCmd.Parameters.AddWithValue("@QryOption", 5);
-                return dCmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                //UtilityOptions.ErrorLog(ex.ToString(), MethodBase.GetCurrentMethod().Name);
-                throw ex;
-            }
-            finally
-            {
-                dCmd.Dispose();
-                conn.Close();
-                conn.Dispose();
-            }
-        }
+       
     }
 }

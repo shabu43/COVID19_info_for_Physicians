@@ -15,69 +15,44 @@ namespace COVID19_info_for_Physicians.Controllers
         {
             return View();
         }
+        public ActionResult Logout()
+        {
+            Session["name"] = null;
+            Session["password"] = null;
+            return View();
+        }
 
-        InstructionList objList;
+        LoginList objList;
         [HttpPost]
-        public JsonResult Add(InstructionDBModel _dbModel)
+        public JsonResult Add(LoginDBModel _dbModel)
         {
             int _result = 0;
-            objList = new InstructionList();
+            objList = new LoginList();
             _result = objList.Add(_dbModel);
             if (_result > 0)
                 return Json(new { success = true });
             else
                 return Json(new { success = false });
         }
-        [HttpGet]
-        public JsonResult GetAll()
+        [HttpPost]
+        public JsonResult GetAll(LoginDBModel _dbModel)
         {
-            objList = new InstructionList();
-            List<InstructionDBModel> _dbModelList = new List<InstructionDBModel>();
+            objList = new LoginList();
+            List<LoginDBModel> _dbModelList = new List<LoginDBModel>();
 
-            _dbModelList = objList.GetAllBlogs();
-            return this.Json(_dbModelList, JsonRequestBehavior.AllowGet);
+            _dbModelList = objList.GetAllBlogs(_dbModel);
+            foreach (var el in _dbModelList)
+            {
+                Session["name"] = el.name;
+                Session["password"] = el.password;
+            }
+
+                return this.Json(_dbModelList, JsonRequestBehavior.AllowGet);
             //return Json(1);
 
         }
-        [HttpPost]
-        public JsonResult LoadSelectedBlog(InstructionDBModel _dbModel)
-        {
-            objList = new InstructionList();
-            List<InstructionDBModel> _dbModelList = new List<InstructionDBModel>();
-            _dbModelList = objList.LoadSelectedBlog(_dbModel);
-            return this.Json(_dbModelList, JsonRequestBehavior.AllowGet);
-        }
-
-        [HttpPost]
-        public JsonResult DeleteBlog(InstructionDBModel _dbModel)
-        {
-            int _result = 0;
-            objList = new InstructionList();
-            _result = objList.DeleteBlog(_dbModel);
-            if (_result > 0)
-                return Json(new { success = true });
-            else
-                return Json(new { success = false });
-        }
-
-        [HttpPost]
-        public JsonResult Update(InstructionDBModel _dbModel)
-        {
-            int _result = 0;
-            objList = new InstructionList();
-            _result = objList.Update(_dbModel);
-            if (_result > 0)
-                return Json(new { success = true });
-            else
-                return Json(new { success = false });
-        }
-
-        [HttpGet]
-
-        public ActionResult Detail()
-        {
-            return View();
-        }
+       
 
     }
+        
 }

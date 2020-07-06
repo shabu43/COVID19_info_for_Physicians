@@ -817,6 +817,7 @@
     <Content Include="Views\Reference\Reference.cshtml" />
     <Content Include="Views\Forum\Forum.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Login\Logout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -87,11 +87,15 @@
     </div>
 </form>
 <!--EDITModal-->
-<button class="btn btn-primary" id="kendoToggler">Kendo Table</button>
+@if (Session["password"] != null)
+{
+    if (Session["password"].ToString() == "admin")
+    {
+<button class="btn btn-primary" id="kendoToggler">Kendo Table</button>}
+            }
 <br />
 <br />
 @*Kendo Table*@
-<button class="btn btn-sm btn-success" id="addBlogBtn" data-toggle="modal" data-target="#addBlogModal">Add+</button>
 <div class="row toggleDiv" style="display:none;">
     <div class="col-md-12 col-lg-12">
         <div id="tblBlog">

@@ -102,7 +102,7 @@ namespace BlogsLibrary
                 dCmd.Parameters.AddWithValue("@id", _dbModel.id);
                 dCmd.Parameters.AddWithValue("@title", _dbModel.title);
                 dCmd.Parameters.AddWithValue("@description", _dbModel.description);
-                
+
                 dCmd.Parameters.AddWithValue("@QryOption", 2);
                 return dCmd.ExecuteNonQuery();
             }

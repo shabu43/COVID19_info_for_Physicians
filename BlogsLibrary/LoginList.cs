@@ -49,7 +49,7 @@ namespace BlogsLibrary
             }
         }
 
-        public List<LoginDBModel> GetAllBlogs(LoginDBModel _dbModel)
+        public List<LoginDBModel> Loginuser(LoginDBModel _dbModel)
         {
             List<LoginDBModel> _modelList = new List<LoginDBModel>();
             SqlConnection conn = new SqlConnection(DBConnection.GetConnection());
@@ -92,6 +92,48 @@ namespace BlogsLibrary
                 conn.Dispose();
             }
         }
-       
+        public List<LoginDBModel> Verify(LoginDBModel _dbModel)
+        {
+            List<LoginDBModel> _modelList = new List<LoginDBModel>();
+            SqlConnection conn = new SqlConnection(DBConnection.GetConnection());
+            conn.Open();
+            SqlCommand dAd = new SqlCommand("SP_SET_TBL_user", conn);
+            SqlDataAdapter sda = new SqlDataAdapter(dAd);
+            dAd.CommandType = CommandType.StoredProcedure;
+            dAd.Parameters.AddWithValue("@email", _dbModel.email);
+            dAd.Parameters.AddWithValue("@password", _dbModel.password);
+            dAd.Parameters.AddWithValue("@QryOption", 3);
+
+            DataTable dt = new DataTable();
+            try
+            {
+                sda.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    _modelList = (from DataRow row in dt.Rows
+                                  select new LoginDBModel
+                                  {
+                                      id = Convert.ToInt32(row["id"].ToString()),
+                                      name = row["name"].ToString(),
+                                      email = row["email"].ToString(),
+                                      password = row["password"].ToString(),
+
+                                  }).ToList();
+                }
+                return _modelList;
+            }
+            catch (Exception ex)
+            {
+                //UtilityOptions.ErrorLog(ex.ToString(), MethodBase.GetCurrentMethod().Name);
+                throw ex;
+            }
+            finally
+            {
+                dt.Dispose();
+                dAd.Dispose();
+                conn.Close();
+                conn.Dispose();
+            }
+        }
     }
 }

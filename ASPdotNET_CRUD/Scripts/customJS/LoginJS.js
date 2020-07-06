@@ -111,6 +111,43 @@
 
         $.ajax({
             type: "POST",
+            url: "/Login/Verify",
+            data: JSON.stringify(_dbModel),
+            contentType: "application/json",
+            datatype: "json",
+            async: false,
+            success: function (data) {
+                var check = null;
+                $.each(data, function (i, item) {
+                    check = item.id;
+                });
+                if (check != null) {
+                    $.notify(" User Already exist! ", "error");
+                }
+                if (check == null) {
+                    signup();
+                };
+
+            },
+            error: function () {
+                $.notify(" Data Addition Failed..! ", "error");
+            }
+        });
+
+
+    });
+
+
+    function signup() {
+        var name = $("#name").val();
+        var email = $("#email").val();
+        var password = $("#password").val();
+
+        var _dbModel = {
+            'name': name, 'email': email, 'password': password,
+        };
+        $.ajax({
+            type: "POST",
             url: "/Login/Add",
             data: JSON.stringify(_dbModel),
             contentType: "application/json",
@@ -130,11 +167,11 @@
                 $.notify(" Data Addition Failed..! ", "error");
             }
         });
-    });
+    }
     $(document).delegate('#loginbtn', 'click', function (e) {
         e.preventDefault();
-        var email = $("#email").val();
-        var password = $("#password").val();
+        var email = $("#emaillog").val();
+        var password = $("#passwordlog").val();
 
         var _dbModel = {
             'email': email, 'password': password,

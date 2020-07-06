@@ -17,6 +17,7 @@ namespace COVID19_info_for_Physicians.Controllers
         }
         public ActionResult Logout()
         {
+            Session["id"] = null;
             Session["name"] = null;
             Session["password"] = null;
             return View();
@@ -40,10 +41,11 @@ namespace COVID19_info_for_Physicians.Controllers
             objList = new LoginList();
             List<LoginDBModel> _dbModelList = new List<LoginDBModel>();
 
-            _dbModelList = objList.GetAllBlogs(_dbModel);
+            _dbModelList = objList.Loginuser(_dbModel);
             foreach (var el in _dbModelList)
             {
-                Session["name"] = el.name;
+                Session["id"] = el.id;
+                Session["name"] = el.email;
                 Session["password"] = el.password;
             }
 
@@ -51,7 +53,19 @@ namespace COVID19_info_for_Physicians.Controllers
             //return Json(1);
 
         }
-       
+
+        public JsonResult Verify(LoginDBModel _dbModel)
+        {
+            objList = new LoginList();
+            List<LoginDBModel> _dbModelList = new List<LoginDBModel>();
+
+            _dbModelList = objList.Verify(_dbModel);
+
+            return this.Json(_dbModelList, JsonRequestBehavior.AllowGet);
+            //return Json(1);
+
+        }
+
 
     }
         

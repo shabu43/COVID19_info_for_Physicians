@@ -16,13 +16,26 @@ namespace COVID19_info_for_Physicians.Controllers
             return View();
         }
 
-        SearchList objList;
+        ForumList objList;
 
         [HttpPost]
-        public JsonResult SearchALL(SearchDBModel _dbModel)
+        public JsonResult Add(ForumDBModel _dbModel)
         {
-            objList = new SearchList();
-            List<SearchDBModel> _dbModelList = new List<SearchDBModel>();
+            int _result = 0;
+            _dbModel.userid = (int)Session["id"];
+            objList = new ForumList();
+            _result = objList.Add(_dbModel);
+            if (_result > 0)
+                return Json(new { success = true });
+            else
+                return Json(new { success = false });
+        }
+
+        [HttpPost]
+        public JsonResult SearchALL(ForumDBModel _dbModel)
+        {
+            objList = new ForumList();
+            List<ForumDBModel> _dbModelList = new List<ForumDBModel>();
 
             _dbModelList = objList.SearchALL(_dbModel);
             return this.Json(_dbModelList, JsonRequestBehavior.AllowGet);

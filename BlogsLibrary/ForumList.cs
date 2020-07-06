@@ -13,15 +13,51 @@ namespace BlogsLibrary
     public class ForumList
     {
 
-        public List<SearchDBModel> SearchALL(SearchDBModel _dbModel)
+        public int Add(ForumDBModel _dbModel)
         {
-            List<SearchDBModel> _modelList = new List<SearchDBModel>();
             SqlConnection conn = new SqlConnection(DBConnection.GetConnection());
             conn.Open();
-            SqlCommand dAd = new SqlCommand("SP_SET_Search", conn);
+            SqlCommand dCmd = new SqlCommand("SP_SET_TBL_Forum", conn);
+            dCmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                
+                //dCmd.Parameters.AddWithValue("@id", _dbModel.id);
+                dCmd.Parameters.AddWithValue("@query", _dbModel.query);
+                dCmd.Parameters.AddWithValue("@userid", _dbModel.userid);
+                //dCmd.Parameters.AddWithValue("@DateAdded", _dbModel.DateAdded);
+                //dCmd.Parameters.AddWithValue("@UpdatedBy", _dbModel.Country);
+                //dCmd.Parameters.AddWithValue("@DateUpdated", _dbModel.City);
+
+                //if (_dbModel.AdminID > 0)
+                //    dCmd.Parameters.AddWithValue("@QryOption", 2);
+                //else
+                //    dCmd.Parameters.AddWithValue("@QryOption", 1);
+                dCmd.Parameters.AddWithValue("@QryOption", 1);
+                return dCmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                //UtilityOptions.ErrorLog(ex.ToString(), MethodBase.GetCurrentMethod().Name);
+                throw ex;
+            }
+            finally
+            {
+                dCmd.Dispose();
+                conn.Close();
+                conn.Dispose();
+            }
+        }
+
+        public List<ForumDBModel> SearchALL(ForumDBModel _dbModel)
+        {
+            List<ForumDBModel> _modelList = new List<ForumDBModel>();
+            SqlConnection conn = new SqlConnection(DBConnection.GetConnection());
+            conn.Open();
+            SqlCommand dAd = new SqlCommand("SP_SET_TBL_Forum", conn);
             SqlDataAdapter sda = new SqlDataAdapter(dAd);
             dAd.CommandType = CommandType.StoredProcedure;
-            dAd.Parameters.AddWithValue("@QryOption", _dbModel.AddedBy);
+            dAd.Parameters.AddWithValue("@QryOption", 2);
 
             DataTable dt = new DataTable();
             try
@@ -30,12 +66,11 @@ namespace BlogsLibrary
                 if (dt.Rows.Count > 0)
                 {
                     _modelList = (from DataRow row in dt.Rows
-                                  select new SearchDBModel
+                                  select new ForumDBModel
                                   {
                                       id = Convert.ToInt32(row["id"].ToString()),
-                                      title = row["title"].ToString(),
-                                      description = row["description"].ToString(),
-                                      AddedBy = row["AddedBy"].ToString(),
+                                      query = row["query"].ToString(),
+                                      name = row["name"].ToString(),
                                       DateAdded = row["DateAdded"].ToString(),
 
                                   }).ToList();

@@ -276,4 +276,22 @@ function LoadEditData(id) {
         }
     });
 }
+function LoadGridData() {
+    $.ajax({
+        type: "GET",
+        url: "/Dealpatient/GetAll",
+        //data: JSON.stringify(_dbModel),
+        contentType: "application/json",
+        datatype: "json",
+        async: false,
+        success: function (data) {
+            //console.log(data);
+            BindGridData(data);
+            tableAppend(data);
+        },
+        error: function () {
+            console.log("data not retrieved!");
+        }
+    });
+}
 

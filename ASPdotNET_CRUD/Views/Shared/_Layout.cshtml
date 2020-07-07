@@ -35,7 +35,6 @@
                     </li>
                     <li>@Html.ActionLink("Scientific Findings", "Scientific_Find", "Findings")</li>
                     <li>@Html.ActionLink("Queries", "Forum", "Forum")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Reference List", "Reference", "Reference")</li>
                     @if (Session["id"] == null)
                     {
@@ -59,7 +58,10 @@
         </div>
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Physician's COVID19 Assistant</p>
+
+            <p> @Html.ActionLink("Contact | ", "Contact", "Home")
+                 &copy; @DateTime.Now.Year - Physician's COVID19 Assistant
+            </p>
         </footer>
     </div>
 

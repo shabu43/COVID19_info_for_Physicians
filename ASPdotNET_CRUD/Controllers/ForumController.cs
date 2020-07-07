@@ -22,6 +22,11 @@ namespace COVID19_info_for_Physicians.Controllers
         public JsonResult Add(ForumDBModel _dbModel)
         {
             int _result = 0;
+            
+            if (Session["id"] == null)
+            {
+                return Json(new { success = false });
+            }
             _dbModel.userid = (int)Session["id"];
             objList = new ForumList();
             _result = objList.Add(_dbModel);

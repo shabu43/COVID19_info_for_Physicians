@@ -19,13 +19,8 @@
         //e.preventDefault();
         //console.log(this.value);
         var query = $('#inputstr').val();
-        if (Session["id"] == null) {
 
-            $.notify(" Login First! ", "error");
-        }
-        else {
-
-            if (query != null) {
+            if (query != '') {
 
                 var _dbModel = {
                     'query': query,
@@ -39,8 +34,13 @@
                     async: false,
                     success: function (data) {
                         //console.log(data);
-                        $.notify(" Posted Successfully.. ", "success");
-                        tableAppend(data);
+                        if (data.success == false) {
+                            $.notify(" PLease Login First!! ", "error");
+                        }
+                        else {
+                            $.notify(" Posted Successfully.. ", "success");
+                            LoadGridData();
+                        }
 
                     },
                     error: function () {
@@ -49,9 +49,9 @@
                 });
             }
             else {
-                $.notify(" Enter Item! ", "error");
+                $.notify(" Enter Queries! ", "error");
             }
-        }
+        
     });
 
  

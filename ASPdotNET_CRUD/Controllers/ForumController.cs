@@ -27,6 +27,10 @@ namespace COVID19_info_for_Physicians.Controllers
             {
                 return Json(new { success = false });
             }
+            if (_dbModel.query == null)
+            {
+                return Json(new { success = false });
+            }
             _dbModel.userid = (int)Session["id"];
             objList = new ForumList();
             _result = objList.Add(_dbModel);
@@ -47,7 +51,38 @@ namespace COVID19_info_for_Physicians.Controllers
             //return Json(1);
 
         }
-        
+        [HttpPost]
+        public JsonResult AddReply(ForumDBModel _dbModel)
+        {
+            int _result = 0;
+
+            if (Session["id"] == null)
+            {
+                return Json(new { success = false });
+            }
+            if (_dbModel.reply == null)
+            {
+                return Json(new { success = false });
+            }
+            _dbModel.userid = (int)Session["id"];
+            objList = new ForumList();
+            _result = objList.AddReply(_dbModel);
+            if (_result > 0)
+                return Json(new { success = true });
+            else
+                return Json(new { success = false });
+        }
+        public JsonResult getReply(ForumDBModel _dbModel)
+        {
+            objList = new ForumList();
+            List<ForumDBModel> _dbModelList = new List<ForumDBModel>();
+
+            _dbModelList = objList.getReply(_dbModel);
+            return this.Json(_dbModelList, JsonRequestBehavior.AllowGet);
+            //return Json(1);
+
+        }
+
 
     }
 }

@@ -21,6 +21,10 @@ namespace COVID19_info_for_Physicians.Controllers
         [HttpPost]
         public JsonResult SearchALL(SearchDBModel _dbModel)
         {
+            if (_dbModel.AddedBy == null)
+            {
+                return Json(new { success = false });
+            }
             objList = new SearchList();
             List<SearchDBModel> _dbModelList = new List<SearchDBModel>();
 

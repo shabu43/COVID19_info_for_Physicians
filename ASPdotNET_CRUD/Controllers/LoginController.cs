@@ -27,6 +27,18 @@ namespace COVID19_info_for_Physicians.Controllers
         [HttpPost]
         public JsonResult Add(LoginDBModel _dbModel)
         {
+            if (_dbModel.password == null || _dbModel.email == null || _dbModel.name == null)
+            {
+                return Json(new { success = false });
+            }
+            objList = new LoginList();
+            List<LoginDBModel> _dbModelList = new List<LoginDBModel>();
+            _dbModelList = objList.Verify(_dbModel);
+            if (_dbModelList == null)
+            {
+                return Json(new { success = false });
+            }
+
             int _result = 0;
             objList = new LoginList();
             _result = objList.Add(_dbModel);
@@ -38,18 +50,30 @@ namespace COVID19_info_for_Physicians.Controllers
         [HttpPost]
         public JsonResult GetAll(LoginDBModel _dbModel)
         {
+            if (_dbModel.password == null || _dbModel.email==null)
+            {
+                return Json(new { success = false });
+            }
             objList = new LoginList();
             List<LoginDBModel> _dbModelList = new List<LoginDBModel>();
-
+            var count = 0;
             _dbModelList = objList.Loginuser(_dbModel);
             foreach (var el in _dbModelList)
             {
                 Session["id"] = el.id;
                 Session["name"] = el.email;
                 Session["password"] = el.password;
+                count = 1;
             }
 
-                return this.Json(_dbModelList, JsonRequestBehavior.AllowGet);
+            if (count == 1)
+            {
+                return Json(new { success = true });
+            } //no need to return
+            else
+            {
+                return Json(new { success = false });
+            }
             //return Json(1);
 
         }

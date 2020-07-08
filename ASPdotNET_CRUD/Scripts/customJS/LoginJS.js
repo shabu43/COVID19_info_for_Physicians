@@ -104,10 +104,23 @@
         var name = $("#name").val();
         var email = $("#email").val();
         var password = $("#password").val();
+        var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
 
-        var _dbModel = {
-            'name': name, 'email': email, 'password': password,
-        };
+        if (name == '') {
+            $.notify(" Enter Name..! ", "error");
+
+        }
+        else if (reg.test(email) == false) {
+            $.notify(" Enter valid Email..! ", "error");
+        }
+        else if (password == '') {
+            $.notify(" Enter Password..! ", "error");
+        }
+
+        else {
+            var _dbModel = {
+                'name': name, 'email': email, 'password': password,
+            };
 
         $.ajax({
             type: "POST",
@@ -134,7 +147,7 @@
             }
         });
 
-
+    }
     });
 
 
@@ -161,21 +174,29 @@
                 $('#password').val("");
                 LoadGridData();
                 document.getElementsByClassName("cancelbtn")[0].click();
-                $.notify(" Data Added Successfully.. ", "success");
+                $.notify(" Successfully Done.. ", "success");
             },
             error: function () {
-                $.notify(" Data Addition Failed..! ", "error");
+                $.notify(" Signup Failed..! ", "error");
             }
         });
     }
     $(document).delegate('#loginbtn', 'click', function (e) {
         e.preventDefault();
+
         var email = $("#emaillog").val();
         var password = $("#passwordlog").val();
-
-        var _dbModel = {
-            'email': email, 'password': password,
-        };
+        if (email == '') {
+            $.notify(" Enter Email..! ", "error");
+           
+        }
+        else if (password == '') {
+            $.notify(" Enter Password..! ", "error");
+        }
+        else {
+            var _dbModel = {
+                'email': email, 'password': password,
+            };
 
         $.ajax({
             type: "POST",
@@ -185,15 +206,22 @@
             datatype: "json",
             async: false,
             success: function (data) {
-                history.back();
+                if (data.success == true) {
+                    history.back();
+                }
+                else {
+                    $.notify(" Login Failed..! ", "error");
+                }
 
 
             },
             error: function () {
-                $.notify(" Data Addition Failed..! ", "error");
+                $.notify(" LoginData Failed..! ", "error");
             }
         });
+    }
     });
+    
     //$("#loginbtn").click(function (e) {
     //    // e.preventDefault();
         

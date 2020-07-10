@@ -86,12 +86,12 @@
     </div>
 </form>
 <!--EDITModal-->
-@if (Session["password"] != null)
+@if (Session["usertype"] != null)
 {
-    if (Session["password"].ToString() == "admin")
+    if (Convert.ToInt32(Session["usertype"]) == 1)
     {
 <button class="btn btn-primary" id="kendoToggler">Kendo Table</button>}
-            }
+}
 <br />
 <br />
 @*Kendo Table*@

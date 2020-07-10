@@ -70,7 +70,8 @@ namespace BlogsLibrary
                     _modelList = (from DataRow row in dt.Rows
                                   select new LoginDBModel
                                   {
-                                      id = Convert.ToInt32(row["id"].ToString()),
+                                      id = Convert.ToInt32(row["userid"].ToString()),
+                                      usertype = Convert.ToInt32(row["usertype"].ToString()),
                                       name = row["name"].ToString(),
                                       email = row["email"].ToString(),
                                       password = row["password"].ToString(),
@@ -113,7 +114,7 @@ namespace BlogsLibrary
                     _modelList = (from DataRow row in dt.Rows
                                   select new LoginDBModel
                                   {
-                                      id = Convert.ToInt32(row["id"].ToString()),
+                                      id = Convert.ToInt32(row["userid"].ToString()),
                                       name = row["name"].ToString(),
                                       email = row["email"].ToString(),
                                       password = row["password"].ToString(),

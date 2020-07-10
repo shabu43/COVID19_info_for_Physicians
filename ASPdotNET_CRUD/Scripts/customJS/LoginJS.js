@@ -116,6 +116,9 @@
         else if (password == '') {
             $.notify(" Enter Password..! ", "error");
         }
+        else if (password.length<8) {
+            $.notify(" Enter Valid Password..! ", "error");
+        }
 
         else {
             var _dbModel = {

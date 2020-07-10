@@ -68,7 +68,7 @@ namespace BlogsLibrary
                     _modelList = (from DataRow row in dt.Rows
                                   select new ForumDBModel
                                   {
-                                      id = Convert.ToInt32(row["id"].ToString()),
+                                      id = Convert.ToInt32(row["postid"].ToString()),
                                       query = row["query"].ToString(),
                                       name = row["name"].ToString(),
                                       DateAdded = row["DateAdded"].ToString(),

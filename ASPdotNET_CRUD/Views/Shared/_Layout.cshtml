@@ -39,14 +39,13 @@
                     <li>@Html.ActionLink("Scientific Findings", "Scientific_Find", "Findings")</li>
                     <li>@Html.ActionLink("Queries", "Forum", "Forum")</li>
                     <li>@Html.ActionLink("Reference List", "Reference", "Reference")</li>
+                    <li><a href="../Search/Search">Search</i></a></li>
                     @if (Session["id"] == null)
                     {
-                         <li>@Html.ActionLink("Login", "Login", "Login")</li>
-                    }
+                <li>@Html.ActionLink("Login", "Login", "Login")</li>}
                     @if (Session["id"] != null)
                     {
-                         <li>@Html.ActionLink("Logout", "Logout", "Login")</li>
-                    }
+                        <li>@Html.ActionLink("Logout", "Logout", "Login")</li>}
 
                 </ul>
 

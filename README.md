@@ -8,7 +8,6 @@ In Safety critical systems course I have done this project to showcase the safet
 - ASPdotNET_CRUD Folder contains the view and controller with javascript.
 - BlogDBModel contains DB models.
 - DBFinal contains script for sql server database
-- Documentation REPORT included 
 
 ## Features of this web based application are as following:
 - To provide vital information to physicians/other users about the COVID-19.
